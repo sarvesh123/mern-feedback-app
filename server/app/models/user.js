@@ -38,7 +38,11 @@ exports.login = function (req, res) {
         if (err) {
             res.send(err)
         } else {
-            res.send(user)
+            if (user) {
+                res.send(user)
+            } else {
+                res.status(400).send('user does not exist')
+            }
         }
     })
 }
