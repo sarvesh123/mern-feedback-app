@@ -1,4 +1,4 @@
-const UserModel = require('../models/users')
+const UserModel = require('../models/user')
 
 exports.register = function (req, res) {
     UserModel.createUser(req.body, res)
