@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text, View, TextInput, Picker, Button, FlatList, ActivityIndicator, StyleSheet, Alert } from 'react-native';
 
+import * as Constants from '../helpers/Constants'
+
 export default class RateUser extends React.Component {
 
     constructor(props) {
@@ -12,7 +14,7 @@ export default class RateUser extends React.Component {
     }
 
     componentDidMount() {
-        return fetch('http://192.168.1.100:3000/api/attributes', {
+        return fetch(Constants.API_URL + '/api/attributes', {
           mode: 'no-cors'
         })
         .then((response) => response.json())
@@ -44,7 +46,7 @@ export default class RateUser extends React.Component {
             }
             return response;
         }
-        return fetch('http://192.168.1.100:3000/api/user_ratings/rate_user', {
+        return fetch(Constants.API_URL + '/api/user_ratings/rate_user', {
             mode: 'no-cors',
             method: 'POST',
             headers: {
